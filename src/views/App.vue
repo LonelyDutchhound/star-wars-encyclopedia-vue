@@ -4,7 +4,7 @@
    <Preloader></Preloader>
    <SearchBar></SearchBar>
    <CardContainer></CardContainer>
-   <PageFooter></PageFooter>-->
+   <PageFooter></PageFooter>
   </div>
 </template>
 
@@ -29,9 +29,7 @@ export default {
 
 <style>
   #app {
-    display: flex;
-    flex-direction: column;
-    width: 100vw;
+    max-width: 100%;
     background: #333333;
   }
 </style>

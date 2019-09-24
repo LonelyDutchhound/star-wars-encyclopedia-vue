@@ -31,7 +31,7 @@
      margin: auto;
      width: 100vw;
      height: 66.6vh;
-     z-index: 5;
+     z-index: 2;
      background: #333333;
      opacity: 1;
   }
@@ -39,7 +39,7 @@
      position: relative;
      left: -60px;
      top: 32.5px;
-     transform-origin: 90px 0px;
+     transform-origin: 90px 0;
      animation: fly 3.4s infinite linear;
   }
   @keyframes fly {
@@ -64,7 +64,7 @@
      100%  {opacity: 0.1}
   }
   .fade-out-leave-active {
-      transition: opacity 1s ease-out;
+      transition: opacity 2s ease-out;
   }
   .fade-out-leave-to  {
       opacity: 0;

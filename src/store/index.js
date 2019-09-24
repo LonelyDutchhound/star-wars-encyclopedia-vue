@@ -7,42 +7,69 @@ export default new Vuex.Store({
   state: {
      characters: [],
      isLoaded: false,
+     nextPage: 'https://swapi.co/api/people/?page=1',
+     fetchError: false,
   },
   actions: {
-     async getCharacters(ctx){
+     async getCharacters({commit, state}, page ) {
         try {
-           const response = await fetch('https://swapi.co/api/people');
+           commit('clearFetchError');
+            console.log(state.fetchError);
+           const response = await fetch(page);
+           const isLoaded = true;
+           commit('updateIsLoaded', isLoaded);
+            console.log(response.ok);
+               if (!response.ok) {
+                   const fetchError = true;
+                   commit('updateFetchError', fetchError);
+                   console.log(state.fetchError);
+               }
+
            const result = await response.json();
+           const nextPage = result.next;
+           commit('updateNextPage', nextPage);
            return getSpecies(result.results);
         } catch (e) {
-           console.log(e)
+            console.log(e);
         }
 
-        function getSpecies(charArray) {
-           const characters = [];
-           const isLoaded = true;
-           charArray.forEach( char => {
-              fetch(char.species[0])
-                 .then(response => response.json())
-                    .then(species => {
-                       char.species[0] = species.name;
-                       characters.push(char);
+        async function getSpecies (charArray){
+           try {
+              const characters = [];
+              for (const char of charArray) {
+                  if (char.species[0]) {
+                      const response = await fetch(char.species[0]);
 
-                    })
-                       .catch(e => console.log(e));
-           });
-            console.log(isLoaded);
-           ctx.commit('updateCharacters', characters);
-           ctx.commit('updateIsLoaded', isLoaded);
+                      const result = await response.json();
+                      char.species[0] = result.name;
+                      characters.push(char);
+                  } else {
+                      char.species[0] = 'Force only knows';
+                      characters.push(char);
+                  }
+              }
+              commit('updateCharacters', characters);
+           } catch (e) {
+               console.log(e);
+           }
         }
-     },
+     }
   },
   mutations: {
      updateCharacters(state, characters){
-        state.characters = characters;
+         state.characters = [...state.characters, ...characters];
      },
      updateIsLoaded(state, isLoaded){
          state.isLoaded = isLoaded;
+     },
+     updateNextPage(state, nextPage){
+         state.nextPage = nextPage;
+     },
+     updateFetchError(state, fetchError){
+        state.fetchError = fetchError;
+     },
+     clearFetchError(state){
+        state.fetchError = false;
      }
   },
   getters: {
@@ -51,6 +78,12 @@ export default new Vuex.Store({
      },
      isLoaded (state){
         return state.isLoaded;
+     },
+     nextPage (state) {
+        return state.nextPage;
+     },
+     gotFetchError (state){
+         return state.fetchError;
      }
   },
 })
