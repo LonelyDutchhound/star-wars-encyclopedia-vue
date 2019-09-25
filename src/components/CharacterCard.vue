@@ -1,0 +1,93 @@
+<template>
+  <div class="card__block" :id="character.id" @click="$emit('popup')">
+     <div class="char-info__block">
+        <div class="avatar__img">
+            <p class="first-letter">{{character.name[0]}}</p>
+        </div>
+        <div class="name-species__block">
+            <p class="name">{{character.name}}</p>
+            <p class="species">{{character.species}}</p>
+        </div>
+     </div>
+  </div>
+</template>
+
+<script>
+  export default {
+     name: 'CharacterCard',
+     props: ['character'],
+  }
+</script>
+
+<style>
+  .card__block {
+     display: flex;
+     justify-content: center;
+     width: 80%;
+     min-width: 272px;
+     height: 40%;
+     min-height: 200px;
+     margin-bottom: 2.75vh;
+     cursor: pointer;
+     background: #1A1A1A;
+     border-radius: 8px;
+     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  }
+  .card__block:hover {
+     box-shadow: 0 10px 40px rgba(37, 136, 167, 0.38);
+  }
+  .char-info__block {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     font-family: Roboto, sans-serif;
+     font-style: normal;
+     text-align: center;
+  }
+  .avatar__img {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     width: 80px;
+     height: 80px;
+     border-radius: 50%;
+     background: #BB86FC;
+  }
+  .first-letter {
+     font-weight: 500;
+     font-size: 48px;
+     line-height: 56px;
+     text-transform: uppercase;
+     color: #FFFFFF;
+  }
+  .name-species__block {
+     width: 70%;
+  }
+  .name {
+     width: 100%;
+     margin-top: 10px;
+     margin-bottom: 9px;
+     font-weight: bold;
+     font-size: 18px;
+     line-height: 21px;
+     text-align: center;
+     color: #FFFFFF;
+  }
+  .species {
+     width: 100%;
+     font-weight: normal;
+     font-size: 13px;
+     line-height: 15px;
+     color: #808080;
+  }
+
+@media screen and (min-width: 769px){
+  .card__block {
+     width: 41vw;
+     max-width: 592px;
+     min-height: 320px;
+     margin: 1.7vh 1.2vw;
+  }
+}
+</style>

@@ -47,7 +47,6 @@
       height: 21px;
       left: 0;
       top: 32px;
-      z-index: 2;
       font-family: Roboto, sans-serif;
       font-style: normal;
       font-weight: 500;
@@ -114,7 +113,6 @@
         width: 130px;
         height: 21px;
         top: 31px;
-        z-index: 2;
         font-size: 18px;
         line-height: 23px;
     }

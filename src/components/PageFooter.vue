@@ -31,7 +31,6 @@
       line-height: 16px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      font-feature-settings: 'cpsp' on;
       color: #FFFFFF;
   }
 
