@@ -1,7 +1,7 @@
 <template>
   <div class="card__block" :id="character.id" @click="$emit('popup')">
      <div class="char-info__block">
-        <div class="avatar__img">
+        <div class="avatar__img" :style="{ background: this.bgColor}">
             <p class="first-letter">{{character.name[0]}}</p>
         </div>
         <div class="name-species__block">
@@ -16,6 +16,11 @@
   export default {
      name: 'CharacterCard',
      props: ['character'],
+     computed: {
+        bgColor: function () {
+           return '#'+Math.random().toString(16).substr(-6);
+        }
+     }
   }
 </script>
 
@@ -52,7 +57,6 @@
      width: 80px;
      height: 80px;
      border-radius: 50%;
-     background: #BB86FC;
   }
   .first-letter {
      font-weight: 500;

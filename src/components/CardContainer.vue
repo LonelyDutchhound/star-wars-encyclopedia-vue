@@ -1,6 +1,7 @@
 <template>
   <transition name="fade-in">
-     <div class="card__container" v-show="isLoaded">
+     <div class="card__container" v-if="isLoaded">
+        <SearchBar @activate="activateSearch"></SearchBar>
         <CharacterCard
            v-for="character in allCharacters"
            :key="character.id"
@@ -12,6 +13,7 @@
            :id="charPopupId"
            @close="togglePopup">
         </PopupCard>
+         <PageFooter v-if="isLoaded"></PageFooter>
      </div>
   </transition>
 </template>
@@ -20,28 +22,33 @@
   import {mapGetters, mapActions} from 'vuex'
   import CharacterCard from "@/components/CharacterCard"
   import PopupCard from '../components/PopupCard'
+  import SearchBar from "@/components/SearchBar"
+  import PageFooter from '../components/PageFooter'
 
   export default {
      name: 'CardContainer',
      components:{
          CharacterCard,
          PopupCard,
+         SearchBar,
+         PageFooter
      },
      data () {
         return {
             bottom: false,
             isPopupOpened: false,
+            isSearchActive: false,
             charPopupId: '',
         }
      },
      computed: mapGetters(['allCharacters','isLoaded','nextPage','gotFetchError']),
      watch: {
         bottom(bottom){
-            if (bottom) this.getCharacters(this.nextPage);
+            if (bottom && !this.isPopupOpened && !this.isSearchActive) this.getCharacters(this.nextPage);
         }
      },
      methods: {
-        ...mapActions(['getCharacters']),
+        ...mapActions(['getCharacters','getSpecies']),
         bottomVisible() {
            const scrollY = window.scrollY;
            const visible = document.documentElement.clientHeight;
@@ -54,9 +61,11 @@
            const charId = event.currentTarget.id;
            if(charId){
               this.charPopupId = charId;
-               console.log(this.charPopupId);
            }
         },
+        activateSearch(string) {
+           this.isSearchActive = !!string;
+        }
      },
      async mounted(){
         await this.getCharacters(this.nextPage);
@@ -73,28 +82,32 @@
      width: 100vw;
      max-width: 520px;
      margin: 0 auto;
+      padding-bottom: 95px;
+     padding-top: 116px;
      display: flex;
      flex-direction: column;
-     justify-content: space-between;
+     justify-content: flex-start;
      align-items: center;
      box-sizing: border-box;
-     padding-bottom: 95px;
+     background: #333333;
      opacity: 1;
   }
   .fade-in-enter-active {
-     transition: opacity 4s ease-out;
+     transition: all 3s ease-out;
   }
   .fade-in-enter {
-    opacity: 0;
+     opacity: 0;
+     transform: translateY(100%);
   }
 
 
 @media screen and (min-width: 769px){
   .card__container {
      margin: 0 auto;
+     padding-bottom: 145px;
+     padding-top: 200px;
      flex-flow: row wrap;
      justify-content: center;
-     padding-bottom: 145px;
      max-width: 1440px;
   }
 }

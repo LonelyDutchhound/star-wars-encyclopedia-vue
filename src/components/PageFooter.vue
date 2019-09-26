@@ -5,7 +5,6 @@
 </template>
 
 <script>
-
 </script>
 
 <style>
@@ -17,7 +16,7 @@
       width: 100vw;
       height: 104px;
       left: 0;
-      top: 0;
+      top: 95px;
       background-color: #1A1A1A;
   }
   .footer__text{
@@ -37,6 +36,7 @@
 @media screen and (min-width: 769px) {
   .footer__container {
      height: 120px;
+     top: 145px
   }
   .footer__text{
       width: 490px;
