@@ -2,7 +2,7 @@
   <div class="header__container">
      <img class="header__logo" src="../assets/star.svg" alt="star">
      <p class="header__text">CHARACTER encyclopedia</p>
-     <img class="header-title__img" src="../assets/title_mob.svg" alt="character encyclopedia">
+     <img class="header-title__img" src="../assets/titlemob.svg" alt="character encyclopedia">
      <img class="header__logo" src="../assets/wars.svg" alt="wars">
   </div>
 </template>
