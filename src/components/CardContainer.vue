@@ -1,4 +1,5 @@
 <template>
+<div class="wrapper">
   <transition name="fade-in">
      <div class="card__container" v-if="isLoaded">
         <SearchBar @activate="activateSearch"></SearchBar>
@@ -13,9 +14,10 @@
            :id="charPopupId"
            @close="togglePopup">
         </PopupCard>
-         <PageFooter v-if="isLoaded"></PageFooter>
      </div>
   </transition>
+  <PageFooter v-if="isLoaded"></PageFooter>
+</div>
 </template>
 
 <script>
@@ -81,12 +83,13 @@
      position: relative;
      width: 100vw;
      max-width: 520px;
+      min-height: 53vh;
      margin: 0 auto;
-      padding-bottom: 95px;
+     padding-bottom: 95px;
      padding-top: 116px;
      display: flex;
      flex-direction: column;
-     justify-content: flex-start;
+     justify-content: space-between;
      align-items: center;
      box-sizing: border-box;
      background: #333333;

@@ -12,9 +12,9 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      position: relative;
       width: 100vw;
       height: 104px;
+      position: relative;
       left: 0;
       top: 95px;
       background-color: #1A1A1A;
