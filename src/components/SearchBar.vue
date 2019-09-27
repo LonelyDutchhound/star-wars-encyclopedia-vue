@@ -1,7 +1,7 @@
 <template>
   <transition name="fade-in">
      <div class="search-bar" v-show="isLoaded && !gotFetchError">
-        <form class="search-bar__form">
+        <form class="search-bar__form" @submit.prevent>
            <input
                v-model="string"
                @input="debouncedSearch"
