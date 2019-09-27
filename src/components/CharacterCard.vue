@@ -1,12 +1,12 @@
 <template>
   <div class="card__block" :id="character.id" @click="$emit('popup')">
-     <div class="char-info__block">
-        <div class="avatar__img" :style="{ background: this.bgColor}">
+     <div class="card__info-block">
+        <div class="card__avatar-img" :style="{ background: this.bgColor}">
             <p class="first-letter">{{character.name[0]}}</p>
         </div>
-        <div class="name-species__block">
-            <p class="name">{{character.name}}</p>
-            <p class="species">{{character.species}}</p>
+        <div class="card__info-block">
+            <p class="info-block__name">{{character.name}}</p>
+            <p class="info-block__species">{{character.species}}</p>
         </div>
      </div>
   </div>
@@ -41,7 +41,7 @@
   .card__block:hover {
      box-shadow: 0 10px 40px rgba(37, 136, 167, 0.38);
   }
-  .char-info__block {
+  .card__info-block {
      display: flex;
      flex-direction: column;
      align-items: center;
@@ -50,7 +50,7 @@
      font-style: normal;
      text-align: center;
   }
-  .avatar__img {
+  .card__avatar-img {
      display: flex;
      justify-content: center;
      align-items: center;
@@ -65,10 +65,10 @@
      text-transform: uppercase;
      color: #FFFFFF;
   }
-  .name-species__block {
+  .card__info-block {
      width: 70%;
   }
-  .name {
+  .info-block__name {
      width: 100%;
      margin-top: 10px;
      margin-bottom: 9px;
@@ -78,7 +78,7 @@
      text-align: center;
      color: #FFFFFF;
   }
-  .species {
+  .info-block__species {
      width: 100%;
      font-weight: normal;
      font-size: 13px;

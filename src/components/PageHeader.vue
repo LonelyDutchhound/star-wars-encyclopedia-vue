@@ -1,5 +1,5 @@
 <template>
-  <div class="header__container">
+  <div class="header">
      <img class="header__logo" src="../assets/star.svg" alt="star">
      <p class="header__text">CHARACTER encyclopedia</p>
      <img class="header-title__img" src="../assets/titlemob.svg" alt="character encyclopedia">
@@ -8,7 +8,7 @@
 </template>
 
 <style>
-  .header__container {
+  .header {
      display: flex;
      flex-direction: column;
      justify-content: center;
@@ -33,7 +33,7 @@
   }
 
 @media screen and (min-width: 769px){
-  .header__container {
+  .header {
      min-height: 309px;
   }
   .header__text {

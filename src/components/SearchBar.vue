@@ -1,7 +1,7 @@
 <template>
   <transition name="fade-in">
-     <div class="search__container" v-show="isLoaded && !gotFetchError">
-        <form class="search__form">
+     <div class="search-bar" v-show="isLoaded && !gotFetchError">
+        <form class="search-bar__form">
            <input
                v-model="string"
                @input="debouncedSearch"
@@ -47,7 +47,7 @@
 </script>
 
 <style>
-  .search__container {
+  .search-bar {
      position: absolute;
      top: 0;
      display: flex;
@@ -58,7 +58,7 @@
      background-color: #333333;
      opacity: 1;
   }
-  .search__form {
+  .search-bar__form {
      position: relative;
      margin-top: 13px;
      margin-bottom: 47px;
@@ -123,10 +123,10 @@
   }
 
 @media screen and (min-width: 769px){
-  .search__container {
+  .search-bar {
      height: 200px;
    }
-  .search__form {
+  .search-bar__form {
      margin-top: 10px;
      width: 55.5vw;
      max-width: 800px;

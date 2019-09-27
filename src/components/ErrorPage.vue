@@ -1,5 +1,5 @@
 <template>
-  <div class="error__container" v-show="gotFetchError">
+  <div class="error" v-show="gotFetchError">
      <p class="error__message">
          Fear is the path to the dark side.<br>
          Fear leads to anger; anger leads to hate; hate leads to suffering.<br>
@@ -23,7 +23,7 @@
 </script>
 
 <style>
-  .error__container {
+  .error {
      position: relative;
      display: flex;
      justify-content: center;

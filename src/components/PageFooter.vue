@@ -1,5 +1,5 @@
 <template>
-  <div class="footer__container">
+  <div class="footer">
       <p class="footer__text">STAR WARS CHARACTER Encyclopedia, 2019</p>
   </div>
 </template>
@@ -8,7 +8,7 @@
 </script>
 
 <style>
-  .footer__container {
+  .footer {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -34,7 +34,7 @@
   }
 
 @media screen and (min-width: 769px) {
-  .footer__container {
+  .footer {
      height: 120px;
      top: 145px
   }

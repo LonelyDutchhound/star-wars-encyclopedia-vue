@@ -1,39 +1,39 @@
 <template>
-<div class="popup__wrapper">
-  <div class="popup__container">
+<div class="popup-wrapper">
+  <div class="popup">
      <div class="popup__header">
-        <img class="close-popup__button" src="../assets/close_btn.svg" @click="$emit('close')">
-        <div class="popup-header__avatar">A</div>
-        <div class="popup-header__name">
-           <p class="name__field">{{popupCharacter['name']}}</p>
+        <img class="popup__button" src="../assets/close_btn.svg" @click="$emit('close')">
+        <div class="popup__header-avatar">A</div>
+        <div class="popup__header-name">
+           <p class="header-name__field">{{popupCharacter['name']}}</p>
         </div>
      </div>
-     <div class="popup-info__block">
-        <div class="popup-info__field">
+     <div class="popup__info-block">
+        <div class="popup__info-field">
             <img class="info-field__icon" src="../assets/by.svg">
-            <p class="info__fieldname">Birth year</p>
-            <p class="info__data">{{popupCharacter['birth_year']}}</p>
+            <p class="info-field__fieldname">Birth year</p>
+            <p class="info-field__data">{{popupCharacter['birth_year']}}</p>
         </div>
-        <div class="popup-info__field">
+        <div class="popup__info-field">
             <img class="info-field__icon" src="../assets/species.svg">
-            <p class="info__fieldname">Species</p>
-            <p class="info__data">{{popupCharacter['species']}}</p>
+            <p class="info-field__fieldname">Species</p>
+            <p class="info-field__data">{{popupCharacter['species']}}</p>
         </div>
-        <div class="popup-info__field">
+        <div class="popup__info-field">
             <img class="info-field__icon" src="../assets/gender.svg">
-            <p class="info__fieldname">Gender</p>
-            <p class="info__data">{{popupCharacter['gender']}}</p>
+            <p class="info-field__fieldname">Gender</p>
+            <p class="info-field__data">{{popupCharacter['gender']}}</p>
         </div>
-        <div class="popup-info__field">
+        <div class="popup__info-field">
            <img class="info-field__icon" src="../assets/homeworld.svg">
-           <p class="info__fieldname">Homeworld</p>
-           <p class="info__data">{{popupCharacter['homeworld']}}</p>
+           <p class="info-field__fieldname">Homeworld</p>
+           <p class="info-field__data">{{popupCharacter['homeworld']}}</p>
         </div>
-        <div class="popup-info__field" id="filmlist">
+        <div class="popup__info-field" id="filmlist">
            <img class="info-field__icon" src="../assets/films.svg">
-           <p class="info__fieldname">Films</p>
-           <ul class="info__data" >
-              <li v-for="film in popupCharacter['films']">{{film}}</li>
+           <p class="info-field__fieldname">Films</p>
+           <ul class="info-field__data" >
+              <li class="info-field__data-element" v-for="film in popupCharacter['films']">{{film}}</li>
            </ul>
         </div>
      </div>
@@ -60,7 +60,7 @@
 </script>
 
 <style>
-  .popup__wrapper {
+  .popup-wrapper {
      position: fixed;
      left: 0;
      top: 0;
@@ -72,7 +72,7 @@
      background: #1A1A1A;
      z-index: 2;
   }
-  .popup__container {
+  .popup {
      width: 320px;
      margin: 0 auto;
      display: flex;
@@ -95,14 +95,14 @@
      border-collapse: collapse;
      border-bottom: 2px solid #808080;
   }
-  .close-popup__button {
+  .popup__button {
      position: absolute;
      right: 6px;
      top: 2px;
      width: 12px;
      height: 12px;
   }
-  .popup-header__avatar {
+  .popup__header-avatar {
      width: 80px;
      height: 80px;
      display: flex;
@@ -117,13 +117,13 @@
      background: #BB86FC;
      color: #FFFFFF;
   }
-  .popup-header__name {
+  .popup__header-name {
      position: relative;
      display: flex;
      align-items: center;
      width: 70%;
   }
-  .name__field{
+  .header-name__field{
      width: 80%;
      margin-left: 8%;
      font-weight: bold;
@@ -131,7 +131,7 @@
      line-height: 26px;
      color: #FFFFFF;
   }
-  .popup-info__block {
+  .popup__info-block {
      width: 100%;
      height: 390px;
      padding-top: 12%;
@@ -139,7 +139,7 @@
      flex-direction: column;
      justify-content: flex-start;
   }
-  .popup-info__field {
+  .popup__info-field {
      width: 100%;
      height: 11.65%;
      display: flex;
@@ -158,12 +158,12 @@
      margin-left: 8%;
      margin-right: 3.5%;
   }
-  .info__fieldname {
+  .info-field__fieldname {
      width: 40%;
      font-weight: normal;
      color: #808080;
   }
-  .info__data {
+  .info-field__data {
      width: 60%;
      font-weight: bold;
      color: #FFFFFF;
@@ -178,11 +178,11 @@
   }
 
 @media screen and (min-width: 769px){
-  .popup__wrapper {
+  .popup-wrapper {
      background: rgba(128, 128, 128, 0.01);
      backdrop-filter: blur(30px);
   }
-  .popup__container {
+  .popup {
      width: 800px;
      height: 492px;
   }
@@ -192,15 +192,15 @@
      padding-bottom: 0;
      justify-content: flex-start;
   }
-  .close-popup__button {
+  .popup__button {
      right: -58px;
      top: 20px;
   }
-  .name__field{
+  .header-name__field{
      margin-left: 4%;
      letter-spacing: 0.05rem;
   }
-  .popup-info__block {
+  .popup__info-block {
      height: 360px;
      padding-top: 7.5%;
      padding-bottom: 8%;
@@ -209,7 +209,7 @@
      justify-content: flex-start;
      align-content: flex-start;
   }
-  .popup-info__field {
+  .popup__info-field {
      width: 39%;
      height: 33%;
      justify-content: flex-start;
@@ -219,10 +219,10 @@
      width: 22px;
      height: 22px;
   }
-  .info__fieldname {
+  .info-field__fieldname {
       width: 35%;
   }
-  .info__data {
+  .info-field__data {
       width: 45%;
   }
   #filmlist ul{
