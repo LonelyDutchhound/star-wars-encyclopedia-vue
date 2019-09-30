@@ -1,21 +1,3 @@
-# star_wars_encyclopedia
-## Project setup
-```
-npm install
-```
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-### Compiles and minifies for production
-```
-npm run build
-```
-### Run your tests
-```
-npm run test
-```
-
 #Тестовое задание на позицию фронтенд-разработчика
 
 ###Задача:
@@ -63,3 +45,21 @@ https://www.figma.com/file/PXdYrz28ltpuv3bsbosmEz/%D0%A2%D0%B5%D1%81%D1%82%D0%BE
 - Реализовать Infinite scrolling по 10 карточек (всё необходимое для этого есть в api).
 - Для хранения данных использовать Vuex.
 - Любые другие улучшения UX приветствуются.
+
+# star_wars_encyclopedia
+## Project setup
+```
+npm install
+```
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+### Compiles and minifies for production
+```
+npm run build
+```
+### Run your tests
+```
+npm run test
+```
