@@ -1,5 +1,5 @@
 <template>
-  <div class="error" v-show="gotFetchError">
+  <div class="error" v-show="fetchError">
      <p class="error__message">
          Fear is the path to the dark side.<br>
          Fear leads to anger; anger leads to hate; hate leads to suffering.<br>
@@ -9,7 +9,7 @@
 </template>
 
 <script>
-  import {mapGetters} from 'vuex'
+  import { mapState } from 'vuex'
 
   export default {
      name: 'ErrorPage',
@@ -18,7 +18,7 @@
             bottom: false
         }
      },
-     computed: mapGetters(['gotFetchError']),
+     computed: mapState(['fetchError']),
   }
 </script>
 

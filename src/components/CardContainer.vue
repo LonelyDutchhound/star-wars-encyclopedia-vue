@@ -1,10 +1,12 @@
 <template>
 <div class="wrapper">
   <transition name="fade-in">
-     <div class="card__container" v-if="isLoaded">
+     <div
+        class="card__container"
+        v-if="isLoaded">
         <SearchBar @activate="activateSearch"></SearchBar>
         <CharacterCard
-           v-for="character in allCharacters"
+           v-for="character in characters"
            :key="character.id"
            :character="character"
            @popup="togglePopup">
@@ -21,7 +23,7 @@
 </template>
 
 <script>
-  import {mapGetters, mapActions} from 'vuex'
+  import { mapActions, mapState} from 'vuex'
   import CharacterCard from "@/components/CharacterCard"
   import PopupCard from '../components/PopupCard'
   import SearchBar from "@/components/SearchBar"
@@ -30,23 +32,25 @@
   export default {
      name: 'CardContainer',
      components:{
-         CharacterCard,
-         PopupCard,
-         SearchBar,
-         PageFooter
+        CharacterCard,
+        PopupCard,
+        SearchBar,
+        PageFooter
      },
      data () {
         return {
-            bottom: false,
-            isPopupOpened: false,
-            isSearchActive: false,
-            charPopupId: '',
+           bottom: false,
+           isPopupOpened: false,
+           isSearchActive: false,
+           charPopupId: '',
         }
      },
-     computed: mapGetters(['allCharacters','isLoaded','nextPage','gotFetchError']),
+     computed: {
+       ...mapState(['characters', 'isLoaded','nextPage'])
+     },
      watch: {
         bottom(bottom){
-            if (bottom && !this.isPopupOpened && !this.isSearchActive) this.getCharacters(this.nextPage);
+           if (bottom && !this.isPopupOpened && !this.isSearchActive) this.getCharacters(this.nextPage);
         }
      },
      methods: {
@@ -83,7 +87,7 @@
      position: relative;
      width: 100vw;
      max-width: 520px;
-      min-height: 53vh;
+     min-height: 53vh;
      margin: 0 auto;
      padding-bottom: 95px;
      padding-top: 116px;

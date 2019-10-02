@@ -125,22 +125,5 @@ export default new Vuex.Store({
      clearIsLoaded(state){
          state.isLoaded = false;
      }
-  },
-  getters: {
-     allCharacters (state){
-        return state.characters;
-     },
-     popupCharacter (state){
-         return state.popupCharacter;
-     },
-     isLoaded (state){
-        return state.isLoaded;
-     },
-     nextPage (state) {
-        return state.nextPage;
-     },
-     gotFetchError (state){
-         return state.fetchError;
-     }
-  },
+  }
 })

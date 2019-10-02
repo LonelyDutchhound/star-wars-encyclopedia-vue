@@ -42,13 +42,13 @@
 </template>
 
 <script>
-  import {mapGetters, mapActions} from 'vuex'
+  import { mapState, mapActions } from 'vuex'
 
   export default {
      name: 'PopupCard',
      props: ['id'],
      computed: {
-         ...mapGetters(['popupCharacter']),
+         ...mapState(['popupCharacter']),
      },
      methods:{
          ...mapActions(['getFullInfo'])

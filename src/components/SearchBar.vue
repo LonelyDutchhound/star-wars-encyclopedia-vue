@@ -1,32 +1,38 @@
 <template>
   <transition name="fade-in">
-     <div class="search-bar" v-show="isLoaded && !gotFetchError">
+     <div class="search-bar" v-show="isLoaded && !fetchError">
         <form class="search-bar__form" @submit.prevent>
            <input
-               v-model="string"
-               @input="debouncedSearch"
-               class="search-bar__input"
-               type="text"
-               :emptyness="string"
-               name="search-bar"
-               id="search-bar"
-               autocomplete="off">
-              <label class="search-bar__tip" for="search-bar">Search by name</label>
-              <div class="search-bar__button"></div>
+              v-model="string"
+              @input="debouncedSearch"
+              class="search-bar__input"
+              type="text"
+              :emptyness="string"
+              name="search-bar"
+              id="search-bar"
+              autocomplete="off">
+           <label
+              class="search-bar__tip"
+              for="search-bar">
+               Search by name
+           </label>
+           <div
+              class="search-bar__button"
+              @click="debouncedSearch">
+           </div>
         </form>
      </div>
   </transition>
 </template>
 
 <script>
-  import {mapGetters, mapActions, mapState} from 'vuex'
+  import { mapActions, mapState} from 'vuex'
   import debounce from 'lodash/debounce';
 
   export default {
      name: 'SearchBar',
      computed: {
-        ...mapState(['searchString']),
-        ...mapGetters(['isLoaded','gotFetchError']),
+        ...mapState(['searchString', 'isLoaded', 'fetchError']),
         string: {
            get() {
               return this.searchString;
