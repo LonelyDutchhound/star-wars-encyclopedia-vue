@@ -4,18 +4,18 @@
      <div
         class="card__container"
         v-if="isLoaded">
-        <SearchBar @activate="activateSearch"></SearchBar>
+        <SearchBar @activate="activateSearch" />
         <CharacterCard
            v-for="character in characters"
            :key="character.id"
            :character="character"
-           @popup="togglePopup">
-        </CharacterCard>
+           @popup="togglePopup"
+           />
         <PopupCard
            v-if="isPopupOpened"
            :id="charPopupId"
-           @close="togglePopup">
-        </PopupCard>
+           @close="togglePopup"
+           />
      </div>
   </transition>
   <PageFooter v-if="isLoaded"></PageFooter>

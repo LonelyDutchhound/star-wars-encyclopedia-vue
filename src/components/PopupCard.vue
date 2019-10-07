@@ -33,7 +33,7 @@
            <img class="info-field__icon" src="../assets/films.svg">
            <p class="info-field__fieldname">Films</p>
            <ul class="info-field__data" >
-              <li class="info-field__data-element" v-for="film in popupCharacter['films']">{{film}}</li>
+              <li class="info-field__data-element" v-for="film in popupCharacter['films']" >{{film}}</li>
            </ul>
         </div>
      </div>

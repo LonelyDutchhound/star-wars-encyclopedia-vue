@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-   <PageHeader></PageHeader>
-   <Preloader></Preloader>
-   <ErrorPage></ErrorPage>
-   <CardContainer></CardContainer>
+   <PageHeader />
+   <Preloader />
+   <ErrorPage />
+   <CardContainer />
   </div>
 </template>
 

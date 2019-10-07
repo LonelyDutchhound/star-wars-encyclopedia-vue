@@ -13,11 +13,6 @@
 
   export default {
      name: 'ErrorPage',
-     data() {
-        return {
-            bottom: false
-        }
-     },
      computed: mapState(['fetchError']),
   }
 </script>
